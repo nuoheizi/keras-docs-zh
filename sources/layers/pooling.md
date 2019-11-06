@@ -263,7 +263,12 @@ __参数__
 
 __输入尺寸__
 
-尺寸是 `(batch_size, steps, features)` 的 3D 张量。
+- 如果 `data_format='channels_last'`，
+    输入为 3D 张量，尺寸为：
+    `(batch_size, steps, features)`
+- 如果`data_format='channels_first'`，
+    输入为 3D 张量，尺寸为：
+    `(batch_size, features, steps)`
 
 __输出尺寸__
 
@@ -275,7 +280,7 @@ __输出尺寸__
 ### GlobalAveragePooling1D
 
 ```python
-keras.layers.GlobalAveragePooling1D()
+keras.layers.GlobalAveragePooling1D(data_format='channels_last')
 ```
 
 对于时序数据的全局平均池化。
